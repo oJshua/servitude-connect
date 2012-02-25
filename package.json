@@ -1,14 +1,14 @@
 {
   "author": "Jerry Sievert <code@legitimatesounding.com> (http://legitimatesounding.com/blog/index.html)",
-  "name": "servitude",
-  "description": "JavaScript and CSS Sugar",
+  "name": "servitude-connect",
+  "description": "A port of Jerry Sievert's Servitude to connect middleware",
   "version": "0.1.5",
   "repository": {
     "type": "git",
-    "url": "http://github.com/JerrySievert/servitude.git"
+    "url": "git@github.com:oJshua/servitude-connect.git"
   },
   "main": "lib/index.js",
-  "keywords": ["javascript", "css", "bricks", "middleware", "sugar"],
+  "keywords": ["javascript", "css", "connect", "middleware", "sugar"],
   "license" : "MIT/X11",
   "engines": {
     "node": ">=0.4.3"
@@ -22,5 +22,11 @@
   },
   "scripts": {
       "test": "vows --spec"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Josh Hundley",
+      "email": "josh.hundley@gmail.com"
+    }
+  ]
 }
