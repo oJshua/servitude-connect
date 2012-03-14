@@ -1,10 +1,8 @@
-# Servitude
+# Servitude-Connect
 
-[![Build Status](https://secure.travis-ci.org/JerrySievert/servitude.png)](http://travis-ci.org/JerrySievert/servitude)
+Super fast sugar for optimizing CSS and JavaScript -- for Connect and Express.
 
-Super fast sugar for optimizing CSS and JavaScript.
-
-Servitude combines CSS and JavaScript into a single fast and cacheable file, speeding up your site without a ton of extra work.
+Jerry Sievert's Servitude combines CSS and JavaScript into a single fast and cacheable file, speeding up your site without a ton of extra work.
 
 It's easy, just drop your JavaScript and CSS into a directory, point to it, and list out what you want to include in the order you want to include it.  `servitude` will inject it into the DOM and your application will be better for it.  No more tons of requests, a single request and everything becomes ready to use.
 
@@ -12,21 +10,23 @@ Optimize without even thinking about it.
 
 # Installing
 
-    $ npm install servitude
+    $ npm install servitude-connect
 
 # Usage
 
-## Server Side
+## Server Side (with Express)
 
-    var servitude = require('servitude');
-    var bricks = require('bricks');
+    var servitude = require('servitude-connect');
+    var express = require('express');
     
-    var appServer = new bricks.appserver();
+    var app = module.exports = express.createServer();
     
-    appServer.addRoute("/servitude/(.+)", servitude, { basedir: "./files" });
-    var server = appServer.createServer();
+    app.use(servitude('/servitude/(.+)', {
+      basedir: __dirname + '/public',
+      cache: true,
+    }));
     
-    server.listen(3000);
+    app.listen(3000);
 
 ## Client Side
 
@@ -43,13 +43,21 @@ Enabling caching stores requested files in memory, and only re-retrieves and re-
 
 If caching is enabled, and the `if-modified-since` header has been set, a check is made against all files requested and either the response is returned as normal, or a `304` status is returned.
 
-    appServer.addRoute("/servitude/(.+)", servitude, {basedir: "./files", cache: true });
+    app.use(servitude('/servitude/(.+)', {
+      basedir: __dirname + '/public',
+      cache: true,
+    }));
 
 ### Uglify
 
 If `uglify` is enabled in the `options`, an attempt is made to `uglify` any JavaScript that has been requested.  Note, this occurs even if the JavaScript has been previously minified.  This may not be desired behavior, so this is turned off by default.
 
-    appServer.addRoute("/servitude/(.+)", servitude, {basedir: "./files", uglify: true });
+    app.use(servitude('/servitude/(.+)', {
+      basedir: __dirname + '/public',
+      cache: true,
+      uglify: true
+    }));
+
 
 ### Filters
 
@@ -63,7 +71,11 @@ Filters are more powerful and allow you to make any modification desired to the 
       }
     }
     
-    appServer.addRoute("/servitude/(.+)", servitude, {basedir: "./files", filter: filter });
+    app.use(servitude('/servitude/(.+)', {
+      basedir: __dirname + '/public',
+      cache: true,
+      filter: filter
+    }));
 
 ## Client Side
 
@@ -78,3 +90,7 @@ A `servitude` object is returned with all output for injection into the DOM.
     }
 
 Injection occurs via the `servitude.inject()` method upon load.
+
+## Credits
+
+- Jerry Sievert - code@legitimatesounding.com - [Blog](http://legitimatesounding.com/blog/index.html)

@@ -1,8 +1,8 @@
 {
-  "author": "Jerry Sievert <code@legitimatesounding.com> (http://legitimatesounding.com/blog/index.html)",
+  "author": "Josh Hundley <josh.hundley@gmail.com> (http://flightofthought.com)",
   "name": "servitude-connect",
   "description": "A port of Jerry Sievert's Servitude to connect middleware",
-  "version": "0.1.5",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:oJshua/servitude-connect.git"
@@ -24,9 +24,6 @@
       "test": "vows --spec"
   },
   "contributors": [
-    {
-      "name": "Josh Hundley",
-      "email": "josh.hundley@gmail.com"
-    }
+    "Jerry Sievert <code@legitimatesounding.com> (http://legitimatesounding.com/blog/index.html)"
   ]
 }
