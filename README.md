@@ -94,3 +94,5 @@ Injection occurs via the `servitude.inject()` method upon load.
 ## Credits
 
 - Jerry Sievert - code@legitimatesounding.com - [Blog](http://legitimatesounding.com/blog/index.html)
+
+- Josh Hundley - josh.hundley@gmail.com - [Blog](http://flightofthought.com)
