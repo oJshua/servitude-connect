@@ -2,7 +2,7 @@
   "author": "Josh Hundley <josh.hundley@gmail.com> (http://flightofthought.com)",
   "name": "servitude-connect",
   "description": "A port of Jerry Sievert's Servitude to connect middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/oJshua/servitude-connect.git"
